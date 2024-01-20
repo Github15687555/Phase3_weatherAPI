@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "63482925-91c6-42ad-904c-b32e7de8e599",
+		"name": "phase3_OpenWeather_Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26295142"
+	},
+	"item": [
+		{
+			"name": "GET_Geolocation_CityState",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{OW}}/geo/1.0/direct?q={{city}},{{state}}&limit=3&appid={{appid}}",
+					"protocol": "http",
+					"host": [
+						"{{OW}}"
+					],
+					"path": [
+						"geo",
+						"1.0",
+						"direct"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "{{city}},{{state}}"
+						},
+						{
+							"key": "limit",
+							"value": "3"
+						},
+						{
+							"key": "appid",
+							"value": "{{appid}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_Geolocation_CityStateCountry",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{OW}}/geo/1.0/direct?q={{city}},{{state}},{{country}}&limit=1&appid={{appid}}",
+					"protocol": "http",
+					"host": [
+						"{{OW}}"
+					],
+					"path": [
+						"geo",
+						"1.0",
+						"direct"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "{{city}},{{state}},{{country}}"
+						},
+						{
+							"key": "limit",
+							"value": "1"
+						},
+						{
+							"key": "appid",
+							"value": "{{appid}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET_AirPollution",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Concord longitude\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.coord.lon).to.eql(-122.0336);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Concord latitude\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.coord.lat).to.eql(37.9769);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"no2\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{OW}}/data/2.5/air_pollution?lat={{latcon}}&lon={{longcon}}&appid={{appid}}",
+					"protocol": "https",
+					"host": [
+						"{{OW}}"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"air_pollution"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "{{latcon}}"
+						},
+						{
+							"key": "lon",
+							"value": "{{longcon}}"
+						},
+						{
+							"key": "appid",
+							"value": "{{appid}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "latcon",
+			"value": "37.9768525",
+			"type": "string"
+		},
+		{
+			"key": "longcon",
+			"value": "-122.0335624",
+			"type": "string"
+		},
+		{
+			"key": "city",
+			"value": "Concord",
+			"type": "string"
+		},
+		{
+			"key": "state",
+			"value": "California",
+			"type": "string"
+		},
+		{
+			"key": "country",
+			"value": "US",
+			"type": "string"
+		}
+	]
+}

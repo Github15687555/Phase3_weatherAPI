@@ -1,0 +1,58 @@
+10:11:05.706 [main] INFO  com.filter.Log4j2Filter - The GET request has started...
+10:11:07.940 [main] INFO  com.filter.Log4j2Filter - 
+ This request passed!
+ API METHOD => GET
+ URI => https://reqres.in/api/users/2
+ REQUEST BODY =>
+null
+ RESPONSE BODY =>
+{
+    "data": {
+        "id": 2,
+        "email": "janet.weaver@reqres.in",
+        "first_name": "Janet",
+        "last_name": "Weaver",
+        "avatar": "https://reqres.in/img/faces/2-image.jpg"
+    },
+    "support": {
+        "url": "https://reqres.in/#support-heading",
+        "text": "To keep ReqRes free, contributions towards server costs are appreciated!"
+    }
+}
+
+
+10:11:41.818 [main] INFO  com.phase3.project.PostRequest - The POST request has started...
+10:11:44.177 [main] INFO  com.filter.Log4j2Filter - 
+ This request passed!
+ API METHOD => POST
+ URI => https://reqres.in/api/users
+ REQUEST BODY =>
+{    "name": "ronaldo nazario",    "job": "software tester"}
+ RESPONSE BODY =>
+{
+    "name": "ronaldo nazario",
+    "job": "software tester",
+    "id": "578",
+    "createdAt": "2024-01-12T18:11:44.557Z"
+}
+06:40:03.598 [main] INFO  com.filter.Log4j2Filter - The GET request has started...
+06:40:06.192 [main] INFO  com.filter.Log4j2Filter - 
+ This request passed!
+ API METHOD => GET
+ URI => https://reqres.in/api/users/2
+ REQUEST BODY =>
+null
+ RESPONSE BODY =>
+{
+    "data": {
+        "id": 2,
+        "email": "janet.weaver@reqres.in",
+        "first_name": "Janet",
+        "last_name": "Weaver",
+        "avatar": "https://reqres.in/img/faces/2-image.jpg"
+    },
+    "support": {
+        "url": "https://reqres.in/#support-heading",
+        "text": "To keep ReqRes free, contributions towards server costs are appreciated!"
+    }
+}
